@@ -1,0 +1,15 @@
+<package>
+  <description brief="semi_static_transform_publisher">
+
+     semi_static_transform_publisher
+
+  </description>
+  <author>Kel Guerin</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/semi_static_transform_publisher</url>
+  <depend package="rospy"/>
+
+</package>
+
+

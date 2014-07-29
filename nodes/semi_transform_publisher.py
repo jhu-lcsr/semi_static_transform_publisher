@@ -2,10 +2,9 @@
 import roslib; roslib.load_manifest('semi_static_transform_publisher')
 import rospy, sys 
 from std_msgs.msg import *
-import semi_static_transform_publisher
-from semi_static_transform_publisher.srv import *
 import tf; from tf import *
 from tf.transformations import *
+from semi_static_transform_publisher.srv import *
 
 
 class SemiStaticTransformPublisher():
@@ -23,15 +22,15 @@ class SemiStaticTransformPublisher():
 
     print '[' + self.name_ + '] publishing xyz: [' + str(self.xyz_) + '], rpy: [' + str(self.rpy_) + '] with Parent: [' + self.parent_ + '] - Child: [' + self.child_ + ']' 
 
-    self.update_transform_srv = rospy.Service('semi_static/'+self.name_+'/update_transform', 
-                                              semi_static_transform_publisher.srv.update_transform, self.update_transform)
+    self.update_transform_service = rospy.Service('/semi_static_transform_publisher/UpdateTransform', 
+                                              UpdateTransform, self.service_update_transform)
 
     r = rospy.Rate(self.rate_)
     while not rospy.is_shutdown():
       self.publish_transform()
       r.sleep()
 
-  def update_transform(self,req):
+  def service_update_transform(self,req):
     self.xyz_ = [req.x,req.y,req.z]
     self.rpy_ = [req.roll,req.pitch,req.yaw]
     rospy.loginfo('[' + self.name_ + '] Updated xyz:' + str(self.xyz_) + ', rpy: ' + str(self.rpy_))

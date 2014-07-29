@@ -1,6 +1,6 @@
 <launch>
     <node pkg="semi_static_transform_publisher" 
-          type="semi_static_transform_publisher.py" 
+          type="semi_transform_publisher.py" 
           name="world_to_test_frame"  
           args="world_to_test_frame  1 2 1  3.1415 1.5707 -3.1415 /world /test_frame 10" 
           output="screen"/>

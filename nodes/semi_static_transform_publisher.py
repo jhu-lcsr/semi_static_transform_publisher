@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 '''
-BSD LICENCE ------------------------------------------
+BSD LICENSE ------------------------------------------
 Copyright (c) 2016, Kelleher Guerin
 All rights reserved.
 
